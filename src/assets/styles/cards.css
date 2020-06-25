@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ropa Sans", sans-serif;
+}
+
+.caixa-principal {
+  background-color: #f7f7f7;
+  padding: 15rem 5rem 5rem 5rem;
+  margin-top: -13rem;
+}
+
+.texto-centralizado {
+  text-align: center;
+}
+
+.margin-bottom-2 {
+  margin-bottom: 2rem;
+  height: 63px;
+}
+
+.titulo-principal {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #FA7D1D, #FAB508);
+  color: transparent;
+  transition: all 0.2s;
+  -webkit-background-clip: text;
+  margin-top: 10px;
+}
+
+.titulo-principal:hover {
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.row .col-1-of-3 {
+  width: calc((100% - 2 * 6rem) / 3);
+}
+
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 30rem;
+  display: flex;
+  padding: 0 12rem;
+}
+
+.card-lado {
+  
+  height: 29rem;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(2, 2, 2, 0.30);
+}
+
+.card-lado-frente {
+  
+    background-image: linear-gradient(to right bottom, #FA7D1D, #FAB508);
+}
+
+.card-lado-tras {
+  
+  transform: rotateY(180deg);
+}
+
+.card-lado-tras-2 {
+  
+  background-image: linear-gradient(to right bottom, #FA7D1D, #FAB508);
+}
+
+.card:hover .card-lado-frente {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card-lado-tras {
+  transform: rotateY(0);
+}
+
+.card-imagem {
+  
+  background-size: cover;
+  height: 23rem;
+  background-blend-mode: screen;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.card-imagem-back-1 {
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485),
+}
+
+.card-imagem-back-2 {
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485),
+}
+
+.card-imagem-back-3 {
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485),
+}
+
+.card-titulo {
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  color: #fff;
+  position: absolute;
+  top: 12rem;
+  width: 75%;
+}
+
+.card-titulo-span {
+  padding: 1rem 1.5rem;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.card-titulo-span-verde {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 215, 162, 0.85),
+    rgba(241, 140, 8, 0.85)
+  );
+}
+
+.card-detalhes {
+  padding: 1rem;
+}
+
+.card-detalhes ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card-detalhes ul li {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.card-detalhes ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.card-caixa {
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.card-apelido-caixa {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 8rem;
+}
+
+.card-apelido-titulo {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.card-apelido-nome {
+  font-size: 6rem;
+  font-weight: 100;
+}
+
+.item {
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+@media screen and (min-width: 780px) and (max-width: 1024px){
+  .card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 30rem;
+    display: flex;
+    padding: 0 29.5rem;
+  }
+}
+
+@media screen and (min-width: 420px) and (max-width: 768px){
+  .card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 30rem;
+    display: flex;
+    padding: 0 22rem;
+  }
+}
+
+
+@media screen and (min-width: 360px) and (max-width: 411px){
+  .card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 30rem;
+    display: flex;
+    padding: 0 11.9rem;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 375px){
+  .card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 30rem;
+    display: flex;
+    padding: 0 10.8rem;
+  }
+}
+
+/* MOTO G 4 */
+
+@media screen and (min-width: 340px) and (max-width: 360px){
+  .card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 30rem;
+    display: flex;
+    padding: 0 10.3rem;
+  }
+}
+
+
+
+
+@media screen and (max-width: 320px){
+  .card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 30rem;
+    display: flex;
+    padding: 0 9rem;
+  }
+}
+
+
+
+

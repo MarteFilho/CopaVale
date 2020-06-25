@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+<html>
+
+
+
+<body>
+
+  <div class="uk-text-center">
+    <div class="uk-container uk-text-center">
+
+      <div *ngIf="matches.length !== 0" >
+        <h2 class="titulo-principal">
+          Partidas Em Andamento
+        </h2>
+      </div>
+  
+    <div class="uk-grid-small  uk-text-center" uk-grid>
+  
+  
+      
+  
+      
+  
+  
+      <div *ngFor="let partida of matches" >
+        
+    
+        
+          <div class="uk-text-center" *ngIf="matches.length !== 0" class="card" style="width: 100%;">
+            <div class="card-lado card-lado-frente">
+              <div class="card-imagem card-imagem-back-1" style="color: white;">
+                <img src={{partida.avatar1}} height="130" width="130" class=" uk-border-circle uk-card-hover" style="margin-top: 20px; box-shadow: 0 0.5rem 2rem rgba(15, 14, 14, 15); font-family: Ropa Sans; color: aliceblue;"> 
+                X 
+                <img src={{partida.avatar2}} height="130" width="130" class="uk-border-circle uk-card-hover" style="margin-top: 20px; box-shadow: 0 0.5rem 2rem rgba(15, 14, 14, 15);">
+              </div>
+              <h4 class="card-titulo">
+                <span class="card-titulo-span">
+                  {{partida.teams.faction1.name}} X {{partida.teams.faction2.name}}
+                </span>
+  
+  
+                
+              </h4>
+              <div class="card-detalhes" style="color: white;">
+                <ul>
+                  <li>{{partida.hora}}h - {{partida.scheduled_at}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-lado card-lado-tras card-lado-tras-2">
+              <div class="card-caixa">
+                <div class="card-apelido-caixa">
+                  <a href={{partida.faceit_url}} target="_blank">
+                    <button class="uk-button uk-button-default ">
+                      <span class="card-titulo-span" style="color: #ffffff;">FACEIT</span>
+                      
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+          
+          
+    
+      </div>
+      
+  
+      <div *ngIf="matches.length === 0">
+        <h2 class="titulo-principal">No momento,</h2>
+        <h2 class="titulo-principal">não temos nenhuma partida em andamento!</h2>
+      </div>
+  
+  
+  
+    </div>
+  </div>
+  </div>
+  
+
+
+
+
+
+</body>
+</html>

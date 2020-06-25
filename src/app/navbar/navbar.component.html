@@ -1,0 +1,41 @@
+<header>
+
+<div class="uk-background borda" >
+    <div class="uk-container" >
+      <nav class="uk-navbar-container uk-navbar-transparent uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+          <ul class="uk-navbar-nav">
+            <li><a href="/home" style="color: white; font-family: Ropa Sans; font-style: normal; font-size: 27px;">Copa Vale</a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right" >
+          <ul class="uk-navbar-nav uk-visible@s">
+            <li>
+              <a href="/live" style="color: white; font-family: Ropa Sans; font-size: 15px;">
+                PARTIDAS LIVE
+              </a>
+            </li>
+            <li><a style="color: white; font-family: Ropa Sans; font-style: normal; font-size: 15px; z-index: 99;">Tickets</a></li>
+            {{user?.nickname}}
+            <li><a href="/login" style="color: white; font-family: Ropa Sans; font-style: normal; font-size: 15px; z-index: 99;">Login</a></li>
+          </ul>
+          <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+  <div id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav">
+            <li><a class="uk-text-large" href="https://shubhamjain.co/about/">about</a></li>
+            <li><a class="uk-text-large" href="https://shubhamjain.co/">blog</a></li>
+        </ul>
+    </div>
+</div>
+
+
+</header>
+

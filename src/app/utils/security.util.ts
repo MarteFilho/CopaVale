@@ -25,4 +25,20 @@ export class Security{
 
     }
 
+    public static clear(){
+        localStorage.removeItem('copauser');
+        localStorage.removeItem('copatoken');
+        localStorage.removeItem('user.token');
+
+    }
+
+    public static getToken(): string {
+        const data = localStorage.getItem('copatoken');
+        if (data) {
+            return data;
+        } else {
+            return null;
+        }
+    }
+
 }

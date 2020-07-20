@@ -33,6 +33,7 @@
             </li>
             <li>
               <a
+                href="/ticket"
                 style="
                   color: white;
                   font-family: Ropa Sans;
@@ -45,6 +46,7 @@
             </li>
             <li>
               <a
+                *ngIf="!logado"
                 href="/login"
                 style="
                   color: white;
@@ -56,8 +58,24 @@
                 >Login</a
               >
             </li>
+
             <li>
-              <a *ngIf="logado != null" (click)="logout()">
+              <a
+                *ngIf="logado"
+                href="/profile"
+                style="
+                  color: white;
+                  font-family: Ropa Sans;
+                  font-style: normal;
+                  font-size: 15px;
+                  z-index: 99;
+                "
+                >Perfil</a
+              >
+            </li>
+
+            <li>
+              <a *ngIf="logado" (click)="logout()">
                 <span
                   class="uk-icon uk-margin-small-right"
                   uk-icon="icon: sign-out"

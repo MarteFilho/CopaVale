@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<div class="uk-flex uk-flex-center" uk-grid>
+  <div class="uk-width-1-3@m">
+    <p
+      class="uk-text-center uk-margin-large-top uk-margin-medium-bottom"
+      style="margin-top: 0; margin-bottom: 0;"
+    ></p>
+
+    <form [formGroup]="form">
+      <div class="uk-text-center">
+        <h2 class="titulo-principal">
+          Novo Ticket
+        </h2>
+      </div>
+
+      <div
+        class="uk-card uk-card-primary uk-card-body uk-margin-left uk-box-shadow-small"
+        style="
+          background-image: linear-gradient(
+            to right bottom,
+            rgba(255, 182, 87, 0.85),
+            rgba(216, 125, 6, 0.85)
+          );
+          margin-top: 10px;
+        "
+      >
+        <div class="uk-margin">
+          <h2>
+            Problema:
+          </h2>
+
+          <input
+            class="uk-input uk-form-large"
+            type="text"
+            placeholder="Problema"
+            formControlName="Problem"
+          />
+        </div>
+
+        <div class="uk-margin">
+          <h2>
+            Motivo:
+          </h2>
+
+          <input
+            class="uk-input uk-form-large"
+            type="text"
+            placeholder="Motivo"
+            formControlName="Reason"
+          />
+          <div class="uk-margin">
+            <button
+              class="uk-button uk-button-default"
+              [disabled]="form.invalid"
+              (click)="submit()"
+            >
+              Criar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div
+      *ngFor="let tickets of tickets"
+      class="uk-card uk-card-primary uk-card-body uk-margin-left uk-box-shadow-small"
+      style="
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(255, 182, 87, 0.85),
+          rgba(216, 125, 6, 0.85)
+        );
+        margin-top: 10px;
+      "
+    >
+      <h3 class="uk-card-title"></h3>
+
+      <div class="uk-margin uk-card-title" style="font-size: 30px;">
+        {{ tickets.status }} - <br />{{ tickets.problem }}
+      </div>
+
+      <div class="uk-margin">
+        {{ tickets.awnser }}
+      </div>
+      <div class="uk-margin">Data de Abertura: {{ tickets.dateOpen }}</div>
+    </div>
+  </div>
+</div>

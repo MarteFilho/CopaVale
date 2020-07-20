@@ -1,6 +1,5 @@
-import { NgtUniversalModule } from '@ng-toolkit/universal';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { CommonModule } from '@angular/common';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
+import { AppModule } from './app.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,19 +21,8 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    DashboardComponent,
-    PartidasLiveComponent,
-    LoginPageComponent,
-    SignupComponent,
-    LoadingComponent,
-    TicketsComponent,
-    ProfileComponent,
-  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
@@ -44,4 +32,4 @@ import { ProfileComponent } from './profile/profile.component';
   providers: [DataService, AuthService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppBrowserModule {}

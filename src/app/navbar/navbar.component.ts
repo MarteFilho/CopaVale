@@ -18,7 +18,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.user = Security.getUser();
     this.logado = this.user;
-    console.log(this.logado);
     if (this.logado === null) {
     }
   }

@@ -96,6 +96,10 @@ export class SignupComponent implements OnInit {
       (data: any) => {
         console.log(data);
         this.busy = false;
+        this.toastr.success(data.mesangem, '', {
+          positionClass: 'toast-top-center',
+        });
+        this.router.navigate(['/login']);
       },
       (err) => {
         console.log(err);

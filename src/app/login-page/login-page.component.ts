@@ -64,7 +64,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   setUser(user, token) {
-    Security.set(user, token);
+    Security.saveUser(user, token);
     this.router.navigate(['/home']);
   }
 }

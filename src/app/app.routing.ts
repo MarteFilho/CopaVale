@@ -5,6 +5,9 @@ import { PartidasLiveComponent } from './partidas-live/partidas-live.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ModuleWithProviders } from '@angular/core';
 import { SignupComponent } from './signup/signup.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthService } from './services/auth.service';
 
 const APP_ROUTES: Routes = [
   { path: '', component: DashboardComponent },
@@ -12,6 +15,8 @@ const APP_ROUTES: Routes = [
   { path: 'live', component: PartidasLiveComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'ticket', component: TicketsComponent, canActivate: [AuthService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthService] },
 ];
 
 @NgModule({

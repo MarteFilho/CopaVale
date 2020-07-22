@@ -10,12 +10,25 @@ import axios from 'axios';
 })
 export class DataService {
   public user: User;
+  public Partidas: any;
 
   constructor(private http: HttpClient) {}
 
   public getPartidasAgendadas() {
-    return this.http.get(
-      'https://open.faceit.com/data/v4/championships/d6a6b4dc-bef5-4c62-ab71-494e6e6eef87/matches?type=upcoming&offset=0&limit=150',
+    return this.http.get<any>(
+      'https://open.faceit.com/data/v4/championships/d6a6b4dc-bef5-4c62-ab71-494e6e6eef87/matches?type=upcoming&offset=0&limit=100',
+      {
+        headers: new HttpHeaders().set(
+          'Authorization',
+          'Bearer 2f52d9e7-2f15-472e-9210-ce91616d214e'
+        ),
+      }
+    );
+  }
+
+  public getPartidasAgendadas2() {
+    return this.http.get<any>(
+      'https://open.faceit.com/data/v4/championships/d6a6b4dc-bef5-4c62-ab71-494e6e6eef87/matches?type=upcoming&offset=100&limit=100',
       {
         headers: new HttpHeaders().set(
           'Authorization',
@@ -54,28 +67,22 @@ export class DataService {
     this.user = Security.getUser();
 
     return this.http.get(
-      'https://copavaleapi.azurewebsites.net/v1/ticket/' + this.user.userId
+      'https://copavale.azurewebsites.net/v1/ticket/' + this.user.userId
     );
   }
 
   public newTicket(data) {
     return this.http.post(
-      'https://copavaleapi.azurewebsites.net/v1/ticket',
+      'https://copavale.azurewebsites.net/v1/ticket/',
       data
     );
   }
 
   public login(data) {
-    return this.http.post(
-      'https://copavaleapi.azurewebsites.net/v1/login',
-      data
-    );
+    return this.http.post('https://copavale.azurewebsites.net/v1/login/', data);
   }
 
   public signup(data) {
-    return this.http.post(
-      'https://copavaleapi.azurewebsites.net/v1/user',
-      data
-    );
+    return this.http.post('https://copavale.azurewebsites.net/v1/user/', data);
   }
 }

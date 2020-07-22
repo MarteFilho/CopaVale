@@ -8,11 +8,21 @@ import { SignupComponent } from './signup/signup.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthService } from './services/auth.service';
+import { MymatchesComponent } from './mymatches/mymatches.component';
 
 const APP_ROUTES: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'home', component: DashboardComponent },
-  { path: 'live', component: PartidasLiveComponent },
+  { path: '', component: DashboardComponent, canActivate: [AuthService] },
+  { path: 'home', component: DashboardComponent, canActivate: [AuthService] },
+  {
+    path: 'mymatches',
+    component: MymatchesComponent,
+    canActivate: [AuthService],
+  },
+  {
+    path: 'live',
+    component: PartidasLiveComponent,
+    canActivate: [AuthService],
+  },
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'ticket', component: TicketsComponent, canActivate: [AuthService] },

@@ -51,6 +51,9 @@ export class LoginPageComponent implements OnInit {
         console.log(data);
         this.busy = false;
         this.setUser(data.user, data.token);
+        this.toastr.success(data.mesangem, '', {
+          positionClass: 'toast-top-center',
+        });
       },
       (err) => {
         console.log(err);

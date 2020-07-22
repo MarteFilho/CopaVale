@@ -8,6 +8,13 @@
         <div class="uk-navbar-left">
           <ul class="uk-navbar-nav">
             <li>
+              <img
+                src="assets/images/logo.png"
+                style="width: 80px; height: 80px; padding: 10px;"
+              />
+            </li>
+
+            <li>
               <a
                 href="/home"
                 style="
@@ -28,11 +35,32 @@
                 href="/live"
                 style="color: white; font-family: Ropa Sans; font-size: 15px;"
               >
+                PARTIDAS AGENDADAS
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/live"
+                style="color: white; font-family: Ropa Sans; font-size: 15px;"
+              >
                 PARTIDAS LIVE
               </a>
             </li>
+
             <li>
               <a
+                *ngIf="logado"
+                href="/mymatches"
+                style="color: white; font-family: Ropa Sans; font-size: 15px;"
+              >
+                MINHAS PARTIDAS
+              </a>
+            </li>
+
+            <li>
+              <a
+                *ngIf="logado"
                 href="/ticket"
                 style="
                   color: white;
@@ -44,6 +72,21 @@
                 >Tickets</a
               >
             </li>
+
+            <li>
+              <a
+                *ngIf="logado"
+                style="
+                  color: white;
+                  font-family: Ropa Sans;
+                  font-style: normal;
+                  font-size: 15px;
+                  z-index: 99;
+                "
+                >{{ user?.nickname }}</a
+              >
+            </li>
+
             <li>
               <a
                 *ngIf="!logado"
@@ -59,7 +102,7 @@
               >
             </li>
 
-            <li>
+            <!-- <li>
               <a
                 *ngIf="logado"
                 href="/profile"
@@ -72,7 +115,7 @@
                 "
                 >Perfil</a
               >
-            </li>
+            </li> -->
 
             <li>
               <a *ngIf="logado" (click)="logout()">

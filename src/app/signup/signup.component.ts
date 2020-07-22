@@ -85,6 +85,15 @@ export class SignupComponent implements OnInit {
           Validators.required,
         ]),
       ],
+
+      teamname: [
+        '',
+        Validators.compose([
+          Validators.minLength[3],
+          Validators.maxLength[50],
+          Validators.required,
+        ]),
+      ],
     });
   }
 

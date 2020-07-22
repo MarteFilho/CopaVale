@@ -20,6 +20,7 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MymatchesComponent } from './mymatches/mymatches.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoadingComponent,
     TicketsComponent,
     ProfileComponent,
+    MymatchesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

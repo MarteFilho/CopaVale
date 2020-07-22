@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { concatMap } from 'rxjs/internal/operators/concatMap';
+import { Security } from '../utils/security.util';
+import { concat, concatMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  selector: 'app-mymatches',
+  templateUrl: './mymatches.component.html',
+  styleUrls: ['./mymatches.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class MymatchesComponent implements OnInit {
   public partidas$: any[];
-  public team$: any[];
-  matches: any[] = [];
+  public team$: any;
+  matches: any;
+  matches1: any;
   public Data = new Date().getDate();
   public Mes = new Date().getMonth();
+  public user: any;
   public busy: boolean;
 
   constructor(private data: DataService) {}
 
   ngOnInit(): void {
+    this.user = Security.getUser();
     this.busy = true;
     this.data
       .getPartidasAgendadas()
@@ -32,7 +36,6 @@ export class DashboardComponent implements OnInit {
           .sort((prev, next) =>
             prev.scheduled_at > next.scheduled_at ? 1 : -1
           )
-
           .map((dados) => ({
             competition_name: dados.competition_name,
             teams: dados.teams,
@@ -45,6 +48,11 @@ export class DashboardComponent implements OnInit {
             group: dados.group,
             faceit_url: this.languagePT(dados.faceit_url),
           }));
+        this.matches = this.matches.filter(
+          (partida) =>
+            partida.teams.faction1.name === this.user.teamName ||
+            partida.teams.faction2.name === this.user.teamName
+        );
         this.busy = false;
       });
   }

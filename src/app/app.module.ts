@@ -21,6 +21,8 @@ import { AuthService } from './services/auth.service';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MymatchesComponent } from './mymatches/mymatches.component';
+import { MatchesbyteamsComponent } from './matchesbyteams/matchesbyteams.component';
+import { AuthAdminService } from './services/authdamin.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MymatchesComponent } from './mymatches/mymatches.component';
     TicketsComponent,
     ProfileComponent,
     MymatchesComponent,
+    MatchesbyteamsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -43,7 +46,7 @@ import { MymatchesComponent } from './mymatches/mymatches.component';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [DataService, AuthService],
+  providers: [DataService, AuthService, AuthAdminService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

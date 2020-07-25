@@ -3,12 +3,12 @@ import { Router, CanActivate } from '@angular/router';
 import { Security } from '../utils/security.util';
 
 @Injectable()
-export class AuthService implements CanActivate {
+export class AuthAdminService implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate() {
-    const token = Security.getToken();
-    if (!token) {
+    const user = Security.getUser();
+    if (user.role !== 'admin') {
       this.router.navigate(['/login']);
       return false;
     }

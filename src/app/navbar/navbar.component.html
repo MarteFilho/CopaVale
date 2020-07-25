@@ -32,7 +32,7 @@
           <ul class="uk-navbar-nav uk-visible@s">
             <li>
               <a
-                href="/live"
+                href="/home"
                 style="color: white; font-family: Ropa Sans; font-size: 15px;"
               >
                 PARTIDAS AGENDADAS
@@ -50,11 +50,21 @@
 
             <li>
               <a
-                *ngIf="logado"
+                *ngIf="logado && user.role === 'usuario'"
                 href="/mymatches"
                 style="color: white; font-family: Ropa Sans; font-size: 15px;"
               >
                 MINHAS PARTIDAS
+              </a>
+            </li>
+
+            <li>
+              <a
+                *ngIf="logado && user.role === 'admin'"
+                href="/matchesbyteam"
+                style="color: white; font-family: Ropa Sans; font-size: 15px;"
+              >
+                PARTIDAS POR TIME
               </a>
             </li>
 
@@ -70,20 +80,6 @@
                   z-index: 99;
                 "
                 >Tickets</a
-              >
-            </li>
-
-            <li>
-              <a
-                *ngIf="logado"
-                style="
-                  color: white;
-                  font-family: Ropa Sans;
-                  font-style: normal;
-                  font-size: 15px;
-                  z-index: 99;
-                "
-                >{{ user?.nickname }}</a
               >
             </li>
 

@@ -1,26 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
-import { Security } from '../utils/security.util';
-import { concat, concatMap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { concatMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-mymatches',
-  templateUrl: './mymatches.component.html',
-  styleUrls: ['./mymatches.component.css'],
+  selector: 'app-matchesbyteams',
+  templateUrl: './matchesbyteams.component.html',
+  styleUrls: ['./matchesbyteams.component.css'],
 })
-export class MymatchesComponent implements OnInit {
-  public partidas$: any[];
-  public team$: any;
-  matches: any;
-  public Data = new Date().getDate();
-  public Mes = new Date().getMonth();
-  public user: any;
+export class MatchesbyteamsComponent implements OnInit {
+  public form: FormGroup;
   public busy: boolean;
+  public exists: boolean;
+  matches: any;
+  constructor(
+    private data: DataService,
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
-  constructor(private data: DataService) {}
+  ngOnInit() {
+    this.form = this.fb.group({
+      team: [
+        '',
+        Validators.compose([
+          Validators.minLength[3],
+          Validators.maxLength[50],
+          Validators.required,
+        ]),
+      ],
+    });
+    this.exists = false;
+  }
 
-  ngOnInit(): void {
-    this.user = Security.getUser();
+  public submit() {
     this.busy = true;
     this.data
       .getPartidasAgendadas()
@@ -49,9 +65,19 @@ export class MymatchesComponent implements OnInit {
           }));
         this.matches = this.matches.filter(
           (partida) =>
-            partida.teams.faction1.name === this.user.teamName ||
-            partida.teams.faction2.name === this.user.teamName
+            partida.teams.faction1.name === this.form.value.team ||
+            partida.teams.faction2.name === this.form.value.team
         );
+        console.log(this.matches);
+        if (this.matches.length == 0) {
+          this.exists = false;
+          this.toastr.error('Nenhum time ou partida encontrado!', '', {
+            positionClass: 'toast-top-center',
+          });
+        } else {
+          this.exists = true;
+        }
+
         this.busy = false;
       });
   }

@@ -48,7 +48,6 @@ export class LoginPageComponent implements OnInit {
     this.busy = true;
     this.service.login(this.form.value).subscribe(
       (data: any) => {
-        console.log(data);
         this.busy = false;
         this.setUser(data.user, data.token);
         this.toastr.success(data.mesangem, '', {
@@ -56,7 +55,6 @@ export class LoginPageComponent implements OnInit {
         });
       },
       (err) => {
-        console.log(err);
         this.busy = false;
         this.toastr.error(err.error.erro, '', {
           positionClass: 'toast-top-center',

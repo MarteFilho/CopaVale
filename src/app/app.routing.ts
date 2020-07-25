@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PartidasLiveComponent } from './partidas-live/partidas-live.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { ModuleWithProviders } from '@angular/core';
 import { SignupComponent } from './signup/signup.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthService } from './services/auth.service';
 import { MymatchesComponent } from './mymatches/mymatches.component';
+import { MatchesbyteamsComponent } from './matchesbyteams/matchesbyteams.component';
+import { AuthAdminService } from './services/authdamin.service';
 
 const APP_ROUTES: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthService] },
@@ -24,6 +25,11 @@ const APP_ROUTES: Routes = [
     canActivate: [AuthService],
   },
   { path: 'login', component: LoginPageComponent },
+  {
+    path: 'matchesbyteam',
+    component: MatchesbyteamsComponent,
+    canActivate: [AuthAdminService],
+  },
   { path: 'signup', component: SignupComponent },
   { path: 'ticket', component: TicketsComponent, canActivate: [AuthService] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthService] },

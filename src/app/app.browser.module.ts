@@ -19,17 +19,17 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthAdminService } from './services/authdamin.service';
 
 @NgModule({
   imports: [
-    
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [DataService, AuthService],
+  providers: [DataService, AuthService, AuthAdminService],
   bootstrap: [AppComponent],
 })
 export class AppBrowserModule {}
